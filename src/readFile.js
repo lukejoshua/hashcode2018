@@ -12,7 +12,13 @@ module.exports = function readFile(fileName){
 			from: [lineArr[0], lineArr[1]],
 			to: [lineArr[2], lineArr[3]],
 			start : lineArr[4],
-			end: lineArr[5]
+			end: lineArr[5],
+			get dist(){
+				return  Math.abs(this.from[0] - this.to[0]) + Math.abs(this.from[1] - this.to[1])
+			},
+			distFrom(x,y){
+				return  Math.abs(this.from[0] - x) + Math.abs(this.from[1] - y)
+			}
 		})
 	}
 

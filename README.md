@@ -1,13 +1,8 @@
-# hashcode2018
+# HashCode 2018
 > Google Hashcode 2018 [Team BitPhase]
 
-### Problem Statement
+## Scores
 
-Lorem ipsum dolor sit amet kermit is king del sit amori tenari cote
-
-#### Team Members
-+ Member
-+ Member
-+ Member
-+ Member
-
+| Problem Set          |  Score |
+|----------------------|-------:|
+| A - example          |    0   |
