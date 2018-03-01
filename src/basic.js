@@ -1,5 +1,5 @@
 module.exports = function basicSolution(problemSet) {
-	const iterations = 10
+	const iterations = 100
 
 	problemSet.rides = problemSet.rides
 		.sort((ride1, ride2) => {
