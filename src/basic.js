@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 module.exports = function(problemSet) {
+=======
+module.exports = function basicSolution(problemSet) {
+>>>>>>> 919afd8f3ce233e4ef1eec6c35cd0695c2000aab
 	const iterations = 100
 
 	problemSet.rides = problemSet.rides
