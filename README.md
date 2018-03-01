@@ -3,13 +3,14 @@
 
 ## Scores
 
-| Problem Set          |  Score |
-|----------------------|-------:|
-| A - example          |    0   |
-| B - should be easy   |    0   |
-| C - no hurry         |    0   |
-| D - metropolis       |    0   |
-| E - high bonus       |    0   |
+| Problem Set          |   Score |
+|----------------------|---------:|
+| A - example          |         8|
+| B - should be easy   |   126,731|
+| C - no hurry         | 2,968,892|
+| D - metropolis       | 4,281,061|
+| E - high bonus       | 2,872,672|
+| **TOTAL**            |10,249,364|
 
 ## Usage
 
