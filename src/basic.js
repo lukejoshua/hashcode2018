@@ -1,5 +1,5 @@
-module.exports = function basicSolution(problemSet) {
-	const iterations = 10
+module.exports = function(problemSet) {
+	const iterations = 100
 
 	problemSet.rides = problemSet.rides
 		.sort((ride1, ride2) => {
@@ -7,17 +7,20 @@ module.exports = function basicSolution(problemSet) {
 			if (ride1.dist < ride2.dist) return 1
 			return 0
 		})
-	let cars = problemSet.rides.slice(0, problemSet.numVehicles).map(x =>
-		({
-			trips: [x.lineNum],
-			pos: x.to,
-			timeNow: Math.abs(x.dist + x.distFrom(0, 0))
-		}))
+
+	let cars = problemSet.rides.slice(0, problemSet.numVehicles).map(x => ({
+		trips: [x.lineNum],
+		pos: x.to,
+		timeNow: Math.abs(x.dist + x.distFrom(0, 0))
+	}))
+
 	problemSet.rides = problemSet.rides.slice(problemSet.numVehicles)
 
+	let r = 0
 	for (let i = 0; i < iterations; i++) {
 		cars = cars.map(car => {
 			for (let [index, ride] of problemSet.rides.entries()) {
+				r++;
 				if (ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow <= problemSet.steps) {
 					car.timeNow = ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow
 					car.trips.push(ride.lineNum)
@@ -29,6 +32,8 @@ module.exports = function basicSolution(problemSet) {
 		})
 	}
 
+	console.log(r)
+	return ""
 	return cars.map(car => {
 		let str = '' + car.trips.length
 		for (let t of car.trips) str += ' ' + t
