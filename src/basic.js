@@ -1,13 +1,12 @@
 module.exports = function(problemSet) {
-	const iterations = 1000
+	const iterations = 10000
 
 	problemSet.rides = problemSet.rides
 		.sort((ride1, ride2) => {
-			if (ride1.start < ride2.start) return -1
-			if (ride1.start > ride2.start) return 1
+			if (ride1.start-ride1.distFrom(0,0) < ride2.start - ride2.distFrom(0,0) ) return -1
+			if (ride1.start -ride1.distFrom(0,0) > ride2.start - ride2.distFrom(0,0)) return 1
 			return 0
 		})
-
 	let cars = problemSet.rides.slice(0, problemSet.numVehicles).map(x => ({
 		trips: [x.lineNum],
 		pos: x.to,
