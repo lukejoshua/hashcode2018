@@ -3,21 +3,19 @@
 
 ## Scores
 
-| Problem Set          |Running Time|   Score  |
-|----------------------|:----------:|---------:|
-| A - example          |   0.07s    |        10|
-| B - should be easy   |   0.10s    |   126,731|
-| C - no hurry         |   1.08s    | 9,416,081|
-| D - metropolis       |  78.19s    | 4,281,061|
-| E - high bonus       |   0.88s    | 2,955,493|
-| **TOTAL**            |            |16,779,376|
+| Problem Set          |Running Time|   Previous Score  | Current Score |
+|----------------------|:----------:|------------------:|--------------:|
+| A - example          |   0.08s    |             **10**|              4|
+| B - should be easy   |   0.09s    |            126,731|    **176,877**|
+| C - no hurry         |   0.88s    |      **9,416,081**|      8,003,233|
+| D - metropolis       |   2.29s    |          4,281,061|  **5,092,021**|
+| E - high bonus       |   0.83s    |          2,955,493| **21,427,663**|
+| **Total**            |            |         16,779,376| **36,112,652**|
 
 ## Usage
 
 ```sh
-# To write output of problem set A to a file:
-node main 0 > path/to/output/a.out
-
-# To write output of problem set B to a file:
-node main 1 > path/to/output/b.out
+# To run all scripts:
+cd src
+sh run.sh
 ```

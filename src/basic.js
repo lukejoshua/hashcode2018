@@ -1,10 +1,10 @@
 module.exports = function(problemSet) {
-	const iterations = 100
+	const iterations = 1000
 
 	problemSet.rides = problemSet.rides
 		.sort((ride1, ride2) => {
-			if (ride1.dist > ride2.dist) return -1
-			if (ride1.dist < ride2.dist) return 1
+			if (ride1.start < ride2.start) return -1
+			if (ride1.start > ride2.start) return 1
 			return 0
 		})
 

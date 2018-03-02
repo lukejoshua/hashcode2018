@@ -1,6 +1,5 @@
 const readFile = require('./readFile')
 const basicSolution = require('./basic')
-const justForE = require('./justForE')
 const process = require('process')
 
 const inputFiles = [
@@ -13,4 +12,4 @@ const inputFiles = [
 
 let problemObj = readFile(inputFiles[process.argv[2]])
 
-console.log(justForE(problemObj))
+console.log(basicSolution(problemObj))
