@@ -1,10 +1,12 @@
 module.exports = function(problemSet) {
-	const iterations = 10000
+	const iterations = 30
 
 	problemSet.rides = problemSet.rides
+		// .filter(ride => ride.dist < (problemSet.rows + problemSet.columns)/1.5)
+		.filter(ride => !(ride.end < ride.start+ ride.dist))
 		.sort((ride1, ride2) => {
-			if (ride1.start-ride1.distFrom(0,0) < ride2.start - ride2.distFrom(0,0) ) return -1
-			if (ride1.start -ride1.distFrom(0,0) > ride2.start - ride2.distFrom(0,0)) return 1
+			if (ride1.start < ride2.start) return -1
+			if (ride1.start > ride2.start) return 1
 			return 0
 		})
 	let cars = problemSet.rides.slice(0, problemSet.numVehicles).map(x => ({
@@ -16,9 +18,12 @@ module.exports = function(problemSet) {
 	problemSet.rides = problemSet.rides.slice(problemSet.numVehicles)
 
 	for (let i = 0; i < iterations; i++) {
-		cars = cars.map(car => {
+		cars = cars.map((car,indexOfCar) => {
 			for (let [index, ride] of problemSet.rides.entries()) {
-				if (ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow <= problemSet.steps) {
+				if (
+					ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow <= (ride.end -ride.dist)
+					&& ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow + ride.dist < ride.end
+				) {
 					car.timeNow = ride.distFrom(car.pos[0], car.pos[1]) + car.timeNow
 					car.trips.push(ride.lineNum)
 					problemSet.rides = problemSet.rides.slice(0, index).concat(problemSet.rides.slice(index + 1))
